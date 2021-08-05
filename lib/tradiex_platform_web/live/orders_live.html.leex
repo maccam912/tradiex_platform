@@ -1,0 +1,22 @@
+<%= live_component TradiexPlatformWeb.NavComponent %>
+
+<h1 class="text-3xl m-4">Orders</h1>
+<table class="table w-full table-zebra">
+<tr><th>Symbol</th><th>Side</th><th>Remaining Quantity</th><th>Type</th><th>ID</th><th>Actions</th></tr>
+<%= for order <- @orders do %>
+<tr>
+    <td><%= Map.get(order, "symbol") %></td>
+    <td><%= Map.get(order, "side") %></td>
+    <td><%= Map.get(order, "remaining_quantity") %></td>
+    <td><%= Map.get(order, "type") %></td>
+    <td><%= Map.get(order, "id") %></td>
+    <td><button class="btn btn-warning" phx-click="cancel" phx-value-id=<%= Map.get(order, "id") %>>Cancel</button></td>
+</tr>
+<% end %>
+</table>
+
+<section class="phx-hero">
+</section>
+
+<section class="row">
+</section>

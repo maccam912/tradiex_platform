@@ -12,7 +12,8 @@ defmodule TradiexPlatform.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TradiexPlatform.PubSub},
       # Start the Endpoint (http/https)
-      TradiexPlatformWeb.Endpoint
+      TradiexPlatformWeb.Endpoint,
+      {TradiexPlatform.Cache, []}
       # Start a worker by calling: TradiexPlatform.Worker.start_link(arg)
       # {TradiexPlatform.Worker, arg}
     ]

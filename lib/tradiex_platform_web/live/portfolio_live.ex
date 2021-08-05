@@ -10,7 +10,7 @@ defmodule TradiexPlatformWeb.PortfolioLive do
 
   @impl true
   def handle_info(:update, socket) do
-    %{"account_number" => acct} = Tradiex.Account.get_user_profile()
+    acct = TradiexPlatform.Cache.acct()
     positions = IO.inspect(Tradiex.Account.get_positions(acct))
     {:noreply, socket |> assign(positions: positions, acct: acct)}
   end

@@ -1,25 +1,25 @@
 <%= live_component TradiexPlatformWeb.NavComponent %>
 
 <h1 class="text-2xl m-8">Order Ticket</h1>
-<%= f = form_for @changeset, "#", phx_submit: :submit, class: "grid grid-cols-2 gap-4 max-w-md form-control" %>
+<%= f = form_for @changeset, "#", phx_change: :validate, phx_submit: :submit, class: "grid grid-cols-2 gap-4 max-w-md form-control" %>
 
 <%= label f, :symbol, [class: "label"] %>
-<%= text_input f, :symbol, [class: "input input-bordered"] %>
+<%= text_input f, :symbol, [placeholder: "AAPL", phx_debounce: "2000", class: "input input-bordered"] %>
 <%= error_tag f, :symbol %>
 
 <%= label f, :side %>
-<%= text_input f, :side, [class: "input input-bordered"] %>
+<%= select f, :side, ["buy", "sell"], [class: "select select-bordered"] %>
 <%= error_tag f, :side %>
 
 <%= label f, :price %>
-<%= text_input f, :price, [class: "input input-bordered"] %>
+<%= number_input f, :price, [class: "input input-bordered"] %>
 <%= error_tag f, :price %>
 
 <%= label f, :quantity %>
-<%= text_input f, :quantity, [class: "input input-bordered"] %>
+<%= number_input f, :quantity, [class: "input input-bordered"] %>
 <%= error_tag f, :quantity %>
 
-<%= submit "Place Order", [class: "btn btn-primary col-span-2"] %>
+<%= submit "Place Order", [disabled: !@valid?, class: "btn btn-primary col-span-2"] %>
 
 </form>
 
