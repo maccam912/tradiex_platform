@@ -1,0 +1,21 @@
+<%= live_component TradiexPlatformWeb.NavComponent %>
+
+<h1 class="text-3xl m-4">Positions</h1>
+<table class="table w-full table-zebra">
+<tr><th>Symbol</th><th>Quantity</th><th>Cost Basis</th><th>Date Acquired</th><th>Actions</th></tr>
+<%= for position <- @positions do %>
+<tr>
+    <td><%= Map.get(position, "symbol") %></td>
+    <td><%= Map.get(position, "quantity") %></td>
+    <td><%= Map.get(position, "cost_basis") %></td>
+    <td><%= Map.get(position, "date_acquired") %></td>
+    <td><button class="btn btn-warning" phx-click="close" phx-value-symbol=<%= Map.get(position, "symbol") %>>Close</button></td>
+</tr>
+<% end %>
+</table>
+
+<section class="phx-hero">
+</section>
+
+<section class="row">
+</section>

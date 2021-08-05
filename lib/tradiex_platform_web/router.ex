@@ -18,6 +18,7 @@ defmodule TradiexPlatformWeb.Router do
     pipe_through :browser
 
     live "/", AccountLive, :index
+    live "/portfolio", PortfolioLive, :index
   end
 
   # Other scopes may use custom stacks.

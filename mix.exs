@@ -45,7 +45,8 @@ defmodule TradiexPlatform.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:number, "~> 1.0"},
-      {:tradiex, git: "https://github.com/maccam912/tradiex.git", branch: "main"}
+      {:tradiex, path: "../tradiex"}
+      # {:tradiex, git: "https://github.com/maccam912/tradiex.git", branch: "main"}
     ]
   end
 

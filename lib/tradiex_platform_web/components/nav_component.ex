@@ -13,7 +13,7 @@ defmodule TradiexPlatformWeb.NavComponent do
     ~L"""
     <nav class="tabs tabs-boxed">
     <%= live_redirect("Account", to: Routes.account_path(@socket, :index), class: classes(@socket, "Account")) %>
-    <%= live_redirect("Portfolio", to: Routes.account_path(@socket, :index), class: classes(@socket, "Portfolio")) %>
+    <%= live_redirect("Portfolio", to: Routes.portfolio_path(@socket, :index), class: classes(@socket, "Portfolio")) %>
     </nav>
     """
   end
