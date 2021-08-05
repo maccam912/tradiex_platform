@@ -10,12 +10,10 @@ defmodule TradiexPlatform.OptionsChain do
   end
 
   def changeset(order, params \\ %{}) do
-    IO.inspect(
-      order
-      |> cast(params, [:symbol, :expiration, :strike, :side])
-      |> validate_required([:symbol, :expiration, :strike, :side])
-      |> validate_symbol()
-    )
+    order
+    |> cast(params, [:symbol, :expiration, :strike, :side])
+    |> validate_required([:symbol, :expiration, :strike, :side])
+    |> validate_symbol()
   end
 
   def validate_symbol(changeset) do

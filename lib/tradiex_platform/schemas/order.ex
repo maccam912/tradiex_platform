@@ -10,12 +10,10 @@ defmodule TradiexPlatform.Order do
   end
 
   def changeset(order, params \\ %{}) do
-    IO.inspect(
-      order
-      |> cast(params, [:symbol, :side, :price, :quantity])
-      |> validate_required([:symbol, :side, :price, :quantity])
-      |> validate_symbol()
-    )
+    order
+    |> cast(params, [:symbol, :side, :price, :quantity])
+    |> validate_required([:symbol, :side, :price, :quantity])
+    |> validate_symbol()
   end
 
   def validate_symbol(changeset) do

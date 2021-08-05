@@ -14,19 +14,12 @@
 
 </form>
 
-<table class="table w-full table-zebra">
-<tr></tr>
-<!--<%= for order <- @orders do %>
-<tr>
-    <td><%= Map.get(order, "symbol") %></td>
-    <td><%= Map.get(order, "side") %></td>
-    <td><%= Map.get(order, "remaining_quantity") %></td>
-    <td><%= Map.get(order, "type") %></td>
-    <td><%= Map.get(order, "id") %></td>
-    <td><button class="btn btn-warning" phx-click="cancel" phx-value-id=<%= Map.get(order, "id") %>>Cancel</button></td>
-</tr>
+<table class="table w-full table-zebra text-center">
+<tr><th colspan="2" class="text-center">Calls</th><th class="text-center">Strikes</th><th colspan="2" class="text-center">Puts</th></tr>
+<tr><th class="text-center">Bid</th><th class="text-center">Ask</th><th></th><th class="text-center">Bid</th><th class="text-center">Ask</th></tr>
+<%= for {strike, %{"call" => call, "put" => put}} <- @chain do %>
+<tr><td><%= Number.Currency.number_to_currency(Map.get(call, "bid")) %></td><td><%= Number.Currency.number_to_currency(Map.get(call, "ask")) %></td><td><%= strike %></td><td><%= Number.Currency.number_to_currency(Map.get(put, "bid")) %></td><td><%= Number.Currency.number_to_currency(Map.get(put, "ask")) %></td></tr>
 <% end %>
--->
 </table>
 
 <section class="phx-hero">
