@@ -11,13 +11,13 @@ defmodule TradiexPlatformWeb.PortfolioLive do
   @impl true
   def handle_info(:update, socket) do
     %{"account_number" => acct} = Tradiex.Account.get_user_profile()
-    positions = IO.inspect Tradiex.Account.get_positions(acct)
+    positions = IO.inspect(Tradiex.Account.get_positions(acct))
     {:noreply, socket |> assign(positions: positions, acct: acct)}
   end
 
   @impl true
   def handle_event("close", %{"symbol" => symbol}, socket) do
-    IO.inspect symbol
+    IO.inspect(symbol)
     Tradiex.Trading.equity_position_close(socket.assigns.acct, symbol)
     Process.send_after(self(), :update, 1000)
     {:noreply, socket}
