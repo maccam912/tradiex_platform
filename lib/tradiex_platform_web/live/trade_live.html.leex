@@ -1,0 +1,23 @@
+<%= live_component TradiexPlatformWeb.NavComponent %>
+
+<h1 class="text-2xl m-8">Order Ticket</h1>
+<%= form_tag @socket, "#", [phx_change: :validate, phx_submit: :submit, class: "grid grid-cols-2 gap-4 max-w-md form-control"], fn f -> %>
+<label for="symbol" class="m-2 label">Symbol</label>
+<input type="text" id="symbol" class="m-2 input input-bordered" placeholder="AAPL" />
+<label for="side" class="m-2 label">Side</label>
+<select id="side" class="m-2 select select-bordered">
+    <option value="buy">Buy</option>
+    <option value="sell">Sell</option>
+</select>
+<label for="price" class="m-2 label">Price</label>
+<input type="number" id="price" class="m-2 input input-bordered" placeholder="100.00" min="0" />
+<label for="quantity" class="m-2 label">Quantity</label>
+<input type="number" id="quantity" class="m-2 input input-bordered" placeholder="1" min="0" />
+<button class="btn btn-primary col-span-2" type="submit">Place Order</button>
+<% end %>
+
+<section class="phx-hero">
+</section>
+
+<section class="row">
+</section>

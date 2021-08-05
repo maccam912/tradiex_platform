@@ -22,18 +22,4 @@ defmodule TradiexPlatformWeb.PortfolioLive do
     Process.send_after(self(), :update, 1000)
     {:noreply, socket}
   end
-
-  # @impl true
-  # def handle_event("search", %{"q" => query}, socket) do
-  #   case search(query) do
-  #     %{^query => vsn} ->
-  #       {:noreply, redirect(socket, external: "https://hexdocs.pm/#{query}/#{vsn}")}
-
-  #     _ ->
-  #       {:noreply,
-  #        socket
-  #        |> put_flash(:error, "No dependencies found matching \"#{query}\"")
-  #        |> assign(results: %{}, query: query)}
-  #   end
-  # end
 end
