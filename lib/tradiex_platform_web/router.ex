@@ -21,6 +21,7 @@ defmodule TradiexPlatformWeb.Router do
     live "/portfolio", PortfolioLive, :index
     live "/orders", OrdersLive, :index
     live "/trade", TradeLive, :index
+    live "/optionschain", OptionsChainLive, :index
   end
 
   # Other scopes may use custom stacks.

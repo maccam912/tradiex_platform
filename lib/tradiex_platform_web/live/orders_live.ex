@@ -13,8 +13,8 @@ defmodule TradiexPlatformWeb.OrdersLive do
     acct = TradiexPlatform.Cache.acct()
 
     orders =
-      Tradiex.Account.get_orders(acct)
-      |> Enum.filter(fn %{"status" => status} -> status == "pending" end)
+      IO.inspect(Tradiex.Account.get_orders(acct))
+      |> Enum.filter(fn %{"status" => status} -> status in ["pending", "open"] end)
 
     {:noreply, socket |> assign(orders: orders)}
   end

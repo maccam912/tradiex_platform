@@ -1,0 +1,36 @@
+<%= live_component TradiexPlatformWeb.NavComponent %>
+
+<h1 class="text-3xl m-4">Options Chain</h1>
+
+<%= f = form_for @changeset, "#", phx_change: :validate, phx_submit: :submit, class: "grid grid-cols-2 gap-4 max-w-md form-control" %>
+
+<%= label f, :symbol, [class: "label"] %>
+<%= text_input f, :symbol, [placeholder: "AAPL", phx_debounce: "2000", class: "input input-bordered"] %>
+<%= error_tag f, :symbol %>
+
+<%= label f, :expiration, [class: "label"] %>
+<%= select f, :expiration, @expirations, [class: "select select-bordered"] %>
+<%= error_tag f, :expiration %>
+
+</form>
+
+<table class="table w-full table-zebra">
+<tr></tr>
+<!--<%= for order <- @orders do %>
+<tr>
+    <td><%= Map.get(order, "symbol") %></td>
+    <td><%= Map.get(order, "side") %></td>
+    <td><%= Map.get(order, "remaining_quantity") %></td>
+    <td><%= Map.get(order, "type") %></td>
+    <td><%= Map.get(order, "id") %></td>
+    <td><button class="btn btn-warning" phx-click="cancel" phx-value-id=<%= Map.get(order, "id") %>>Cancel</button></td>
+</tr>
+<% end %>
+-->
+</table>
+
+<section class="phx-hero">
+</section>
+
+<section class="row">
+</section>

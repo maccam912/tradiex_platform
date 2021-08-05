@@ -16,6 +16,7 @@ defmodule TradiexPlatformWeb.NavComponent do
     <%= live_redirect("Portfolio", to: Routes.portfolio_path(@socket, :index), class: classes(@socket, "Portfolio")) %>
     <%= live_redirect("Orders", to: Routes.orders_path(@socket, :index), class: classes(@socket, "Orders")) %>
     <%= live_redirect("Trade", to: Routes.trade_path(@socket, :index), class: classes(@socket, "Trade")) %>
+    <%= live_redirect("Options Chain", to: Routes.options_chain_path(@socket, :index), class: classes(@socket, "OptionsChain")) %>
     </nav>
     """
   end
