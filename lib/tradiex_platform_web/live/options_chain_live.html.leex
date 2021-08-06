@@ -1,8 +1,8 @@
 <%= live_component TradiexPlatformWeb.NavComponent %>
 
-<h1 class="text-3xl m-4">Options Chain</h1>
+<h1 class="text-3xl m-4 text-center">Options Chain</h1>
 
-<%= f = form_for @changeset, "#", phx_change: :validate, phx_submit: :submit, class: "grid grid-cols-2 gap-4 max-w-md form-control" %>
+<%= f = form_for @changeset, "#", phx_change: :validate, phx_submit: :submit, class: "m-4 mx-auto form-control" %>
 
 <%= label f, :symbol, [class: "label"] %>
 <%= text_input f, :symbol, [placeholder: "AAPL", phx_debounce: "2000", class: "input input-bordered"] %>

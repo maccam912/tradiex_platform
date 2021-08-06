@@ -1,4 +1,4 @@
-<main role="main" class="container mx-auto">
+<main role="main" class="container">
   <p class="alert alert-info" role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="info"><%= live_flash(@flash, :info) %></p>
@@ -8,7 +8,7 @@
     phx-value-key="error"><%= live_flash(@flash, :error) %></p>
 
   <header>
-  <h1 class="m-4 text-3xl">Tradiex Platform</h1>
+  <h1 class="m-4 text-3xl text-center">Tradiex Platform</h1>
   </header>
   <%= @inner_content %>
 </main>

@@ -1,7 +1,7 @@
 <%= live_component TradiexPlatformWeb.NavComponent %>
 
-<h1 class="text-2xl m-8">Order Ticket</h1>
-<%= f = form_for @changeset, "#", phx_change: :validate, phx_submit: :submit, class: "grid grid-cols-2 gap-4 max-w-md form-control" %>
+<h1 class="text-2xl m-8 text-center">Order Ticket</h1>
+<%= f = form_for @changeset, "#", phx_change: :validate, phx_submit: :submit, class: "form-control" %>
 
 <%= label f, :symbol, [class: "label"] %>
 <%= text_input f, :symbol, [placeholder: "AAPL", phx_debounce: "2000", class: "input input-bordered"] %>
@@ -20,7 +20,6 @@
 <%= error_tag f, :quantity %>
 
 <%= submit "Place Order", [disabled: !@valid?, class: "btn btn-primary col-span-2"] %>
-
 </form>
 
 <section class="phx-hero">
