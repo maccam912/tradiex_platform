@@ -1,22 +1,15 @@
 defmodule TradiexPlatformWeb.NavComponent do
-  use TradiexPlatformWeb, :live_component
-
-  def classes(assigns, name) do
-    if String.contains?(to_string(assigns.view), name) do
-      "tab tab-active"
-    else
-      "tab"
-    end
-  end
+  use Surface.Component
+  alias Surface.Components.LiveRedirect
 
   def render(assigns) do
-    ~L"""
+    ~F"""
     <nav class="tabs tabs-boxed">
-    <%= live_redirect("Account", to: Routes.account_path(@socket, :index), class: classes(@socket, "Account")) %>
-    <%= live_redirect("Portfolio", to: Routes.portfolio_path(@socket, :index), class: classes(@socket, "Portfolio")) %>
-    <%= live_redirect("Orders", to: Routes.orders_path(@socket, :index), class: classes(@socket, "Orders")) %>
-    <%= live_redirect("Trade", to: Routes.trade_path(@socket, :index), class: classes(@socket, "Trade")) %>
-    <%= live_redirect("Options Chain", to: Routes.options_chain_path(@socket, :index), class: classes(@socket, "OptionsChain")) %>
+    <LiveRedirect to="/">Account</LiveRedirect>
+    <LiveRedirect to="/portfolio">Portfolio</LiveRedirect>
+    <LiveRedirect to="/orders">Orders</LiveRedirect>
+    <LiveRedirect to="/trade">Trade</LiveRedirect>
+    <LiveRedirect to="/optionschain">Options Chain</LiveRedirect>
     </nav>
     """
   end
