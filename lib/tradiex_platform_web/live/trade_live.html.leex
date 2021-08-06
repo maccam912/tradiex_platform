@@ -11,9 +11,15 @@
 <%= select f, :side, ["buy", "sell"], [class: "select select-bordered"] %>
 <%= error_tag f, :side %>
 
+<%= label f, :order_type %>
+<%= select f, :order_type, ["market", "limit"], [class: "select select-bordered"] %>
+<%= error_tag f, :order_type %>
+
+<%= if @show_price do %>
 <%= label f, :price %>
 <%= number_input f, :price, [class: "input input-bordered"] %>
 <%= error_tag f, :price %>
+<% end %>
 
 <%= label f, :quantity %>
 <%= number_input f, :quantity, [class: "input input-bordered"] %>

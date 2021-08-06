@@ -5,15 +5,18 @@ defmodule TradiexPlatform.Order do
   schema "orders" do
     field(:symbol)
     field(:side)
-    field(:price)
-    field(:quantity)
+    field(:order_type)
+    field(:price, :float)
+    field(:quantity, :integer)
   end
 
   def changeset(order, params \\ %{}) do
     order
-    |> cast(params, [:symbol, :side, :price, :quantity])
-    |> validate_required([:symbol, :side, :price, :quantity])
+    |> cast(params, [:symbol, :side, :order_type, :price, :quantity])
+    |> validate_required([:symbol, :side, :order_type, :quantity])
     |> validate_symbol()
+    |> validate_number(:price, greater_than: 0)
+    |> validate_number(:quantity, greater_than: 0)
   end
 
   def validate_symbol(changeset) do

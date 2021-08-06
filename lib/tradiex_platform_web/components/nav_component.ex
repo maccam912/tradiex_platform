@@ -11,6 +11,7 @@ defmodule TradiexPlatformWeb.NavComponent do
 
   def render(assigns) do
     ~L"""
+    <div class="divider"></div>
     <nav class="navbar">
     <div class="navbar-start"></div>
     <%= live_redirect("Account", to: Routes.account_path(@socket, :index), class: classes(@socket, "Account")) %>
@@ -20,6 +21,7 @@ defmodule TradiexPlatformWeb.NavComponent do
     <%= live_redirect("Options Chain", to: Routes.options_chain_path(@socket, :index), class: classes(@socket, "OptionsChain")) %>
     <div class="navbar-end"></div>
     </nav>
+    <div class="divider"></div>
     """
   end
 end
